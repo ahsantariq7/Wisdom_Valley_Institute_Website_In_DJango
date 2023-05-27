@@ -1,0 +1,68 @@
+{% load static %}
+
+{% block title %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+{% endblock title %}
+
+
+
+{% block body %}  
+<div>
+    <img src="{% static 'logo1.jpg' %}" class="rounded mx-auto d-block" alt="...">
+</div>
+
+<div class="card shadow m-5">
+    <div class="card-body">
+        <h5 class="p-2 text-warning " style="bordder-bottom : 2x solid warning">Create An Account</h5>
+
+    </div>
+
+</div>
+<div class="container  py-4">
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group text-warning fs-3">
+            <label for="id_username">Username:</label>
+            <input type="text" class="form-control" id="name" name="username" placeholder="Enter your Username" autofocus required id="id_username">
+        </div>
+        <div class="form-group text-warning fs-3">
+            <label for="id_first_name">First name:</label>
+            <input type="text" class="form-control  " name="first_name" placeholder="Enter your first_name" maxlength="30" id="id_first_name">
+        </div>
+        <div class="form-group text-warning fs-3">
+            <label for="id_last_name">Last name:</label>
+            <input type="text" class="form-control  " name="last_name" placeholder="Enter your last_name" maxlength="30" id="id_last_name">
+        </div>
+        <div class="form-group text-warning fs-3">
+            <label for="id_email">Email:</label>
+            <input type="email" class="form-control  " name="email" placeholder="Enter your Email" maxlength="254" required id="id_email">
+            
+        </div>
+        <div class="form-group text-warning fs-3">
+            <label for="id_phone">Phone:</label>
+            <input type="phone" class="form-control  " name="phone" placeholder="Enter your phone" maxlength="254" required id="id_email">
+            
+        </div>
+        <div class="form-group text-warning fs-3">
+            <label for="id_password1">Password:</label>
+            <input type="password" class="form-control  " name="password1" placeholder="Enter your Password" autocomplete="new-password" required id="id_password1">
+        </div>
+        <div class="form-group text-warning fs-3">
+            <label for="id_password2">Password confirmation:</label>
+            <input type="password" class="form-control  " name="password2" placeholder="Again Confirrm Password" autocomplete="new-password" required id="id_password2">
+        </div>
+        
+
+    </div> 
+    <div class="col-md-12 text-center text-warning">
+    <button type="submit" class="btn btn-outline-warning my-4 text-center">Register</button><br>
+    And If You Have Already Account  <a href="{% url 'login' %}"><button type="button" class="btn btn-outline-warning my-4 text-center">Login</button></a>
+    <a href="{% url 'home' %}"><button type="button" class="btn btn-outline-warning my-4 text-center">Home</button></a>
+    </div>
+    </div>
+        <br><br>
+       
+    </form>
+
+    {% endblock body %} 
